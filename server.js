@@ -45,17 +45,23 @@ function parseCardTypeLine(typeLine) {
   const leftSide = delimiterIndex >= 0 ? raw.slice(0, delimiterIndex).trim() : raw;
   const rightSide = delimiterIndex >= 0 ? raw.slice(delimiterIndex + delimiterMatch[0].length).trim() : "";
 
-  // Split on one-or-more whitespace runs so custom cards with extra spacing still parse
-  // into normalized tokens.
-  const toTokens = (value) =>
+  // Keep the left side intact (e.g. "Legendary Creature") so supertypes don't
+  // get split into separate filter values.
+  const toSingleToken = (value) => {
+    const token = value.trim();
+    return token ? [token] : [];
+  };
+
+  // Subtypes can still be tokenized by whitespace.
+  const toSubtypeTokens = (value) =>
     value
       .split(/\s+/)
       .map((token) => token.trim())
       .filter(Boolean);
 
   return {
-    types: toTokens(leftSide),
-    subtypes: toTokens(rightSide)
+    types: toSingleToken(leftSide),
+    subtypes: toSubtypeTokens(rightSide)
   };
 }
 

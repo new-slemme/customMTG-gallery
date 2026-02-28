@@ -1,0 +1,478 @@
+[
+  {
+    "name": "Agumon, Spark of Courage",
+    "mana": "1R",
+    "type": "Creature — Vaccine Rookie Dinosaur Digimon",
+    "pt": "2/2",
+    "rules": "First strike\nWhenever Agumon attacks, it deals 1 damage to any target.\nIf you activate a Shinka or Warp Shinka ability, Agumon gets +1/+0 until end of turn."
+  },
+  {
+    "name": "Greymon, Crest-Fired Colossus",
+    "mana": "3R",
+    "type": "Creature — Vaccine Adult Dinosaur Digimon",
+    "pt": "4/4",
+    "rules": "Trample\nWhen Greymon enters, it deals 2 damage to any target. If it evolved from Agumon, it deals 5 damage instead.\nWhenever Greymon deals combat damage to a player, you may discard a card. If you do, draw a card."
+  },
+  {
+    "name": "MetalGreymon, Giga Destroyer",
+    "mana": "5R",
+    "type": "Creature — Vaccine Ultra Cyborg Dinosaur Digimon",
+    "pt": "6/6",
+    "rules": "Flying, trample\nGiga Destroyer — When MetalGreymon enters, it deals 3 damage to each creature your opponents control.\nIf it evolved from Greymon, instead it deals 3 damage to each opponent and each creature your opponents control.\nWhenever one or more creatures an opponent controls die, put a +1/+1 counter on MetalGreymon."
+  },
+  {
+    "name": "WarGreymon, Brave Shield Incarnate",
+    "mana": "6WR",
+    "type": "Legendary Creature — Vaccine Mega Dragon Warrior Digimon",
+    "pt": "8/8",
+    "rules": "Flying, vigilance, trample\nBrave Shield — When this enters, put two shield counters on it.\nDramon Killers — Whenever WarGreymon deals combat damage to a Dragon, destroy that creature.\nWhenever WarGreymon attacks, you may remove a shield counter from it. When you do, it deals damage equal to its power to any target.\nWarp from Agumon"
+  },
+  {
+    "name": "Gabumon, Howling Solitude",
+    "mana": "1U",
+    "type": "Creature — Data Rookie Beast Digimon",
+    "pt": "2/2",
+    "rules": "Ward {1}\nWhenever Gabumon attacks, tap up to one target creature defending player controls. It doesn’t untap during its controller’s next untap step."
+  },
+  {
+    "name": "Garurumon, Winter’s Fang",
+    "mana": "3U",
+    "type": "Creature — Data Adult Beast Digimon",
+    "pt": "4/4",
+    "rules": "Flash\nWhen Garurumon enters, tap up to two target creatures. If it evolved from Gabumon, return one of those creatures to its owner’s hand instead.\nWhenever you cast an instant spell, Garurumon gets +1/+0 until end of turn."
+  },
+  {
+    "name": "WereGarurumon, Kendo Fangmaster",
+    "mana": "5U",
+    "type": "Creature — Data Ultra Warrior Beast Digimon",
+    "pt": "6/6",
+    "rules": "Vigilance\nWhen WereGarurumon enters, draw a card, then discard a card. If it evolved from Garurumon, draw two cards, then discard a card.\nWhenever WereGarurumon deals combat damage to a player, you may return up to one target nonland permanent that player controls to its owner’s hand."
+  },
+  {
+    "name": "MetalGarurumon, Absolute Zero",
+    "mana": "6WU",
+    "type": "Legendary Creature — Data Mega Cyborg Beast Digimon",
+    "pt": "8/8",
+    "rules": "Flying, ward {2}\nAbsolute Zero — When MetalGarurumon enters, tap all creatures your opponents control. Put a stun counter on each of them. (If a permanent with a stun counter would untap, remove one from it instead.)\nIf it evolved from WereGarurumon, you may also return up to one target nonland permanent to its owner’s hand.\nWhenever you cast your second spell each turn, untap MetalGarurumon. It gains hexproof until end of turn.\nWarp from Gabumon"
+  },
+  {
+    "name": "Omegamon, Blade of Unity",
+    "mana": "9WUR",
+    "type": "Legendary Creature — Vaccine Mega+ Warrior Digimon",
+    "pt": "11/11",
+    "rules": "Double strike, ward {3}\nWhen Omegamon enters, exile up to one target nonland permanent an opponent controls and up to one other target creature an opponent controls.\nIf it evolved from WarGreymon and MetalGarurumon, instead exile up to two target nonland permanents and up to two other target creatures.\nAt the beginning of combat on your turn, you may remove a shield counter from a creature you control. If you do, Omegamon gains indestructible until end of turn and you draw a card.\nWarp from WarGreymon\nWarp from MetalGarurumon"
+  },
+  {
+    "name": "Guilmon, Grinning Hazard",
+    "mana": "1R",
+    "type": "Creature — Virus Rookie Dragon Digimon",
+    "pt": "2/2",
+    "rules": "Menace\nWhenever Guilmon attacks, it deals 1 damage to any target. If you control a Tamer, it deals 2 damage instead."
+  },
+  {
+    "name": "Growlmon, Ember-Roaring Beast",
+    "mana": "3R",
+    "type": "Creature — Virus Adult Dragon Digimon",
+    "pt": "4/4",
+    "rules": "Trample\nWhen Growlmon enters, it deals 2 damage to target creature an opponent controls. If it evolved from Guilmon, that creature can’t block this turn.\nWhenever Growlmon attacks, you may discard a card. If you do, draw a card."
+  },
+  {
+    "name": "WarGrowlmon, Atomic Ravager",
+    "mana": "5RW",
+    "type": "Creature — Virus Ultra Machine Dragon Digimon",
+    "pt": "6/6",
+    "rules": "First strike, trample\nWhen WarGrowlmon enters, it deals 3 damage to up to one target creature and 3 damage to up to one target planeswalker.\nIf it evolved from Growlmon, exile that creature if it would die this turn.\nWhenever WarGrowlmon attacks, creatures you control get +1/+0 until end of turn."
+  },
+  {
+    "name": "Gallantmon, Crimson Crusader",
+    "mana": "6RW",
+    "type": "Legendary Creature — Virus Mega Knight Dragon Digimon",
+    "pt": "8/8",
+    "rules": "Double strike, lifelink\nWhen Gallantmon enters, exile up to one target creature an opponent controls.\nIf it evolved from WarGrowlmon, you may exile up to two target creatures instead.\nWhenever Gallantmon attacks, you may remove a shield counter from a creature you control. If you do, exile up to one target creature blocking or blocked by Gallantmon.\nWarp from Guilmon"
+  },
+  {
+    "name": "Gallantmon, Crimson Mode",
+    "mana": "9RWW",
+    "type": "Legendary Creature — Virus Mega+ Knight Dragon Digimon",
+    "pt": "11/11",
+    "rules": "Double strike, trample, lifelink\nWhen this enters, you get an extra combat phase after this phase.\nIf it evolved from Gallantmon, Crimson Crusader, you may also exile up to one target nonland permanent.\nAt the beginning of each combat, Gallantmon, Crimson Mode gains indestructible until end of turn."
+  },
+  {
+    "name": "Megidramon, World-Ender",
+    "mana": "6BR",
+    "type": "Legendary Creature — Virus Mega Dragon Digimon",
+    "pt": "8/8",
+    "rules": "Flying, menace\nWhen Megidramon enters, it deals 5 damage to each creature your opponents control.\nIf it evolved from WarGrowlmon, each opponent sacrifices a creature.\nWhenever a creature an opponent controls dies, each opponent loses 1 life and you gain 1 life.\nWarp from Guilmon"
+  },
+  {
+    "name": "ChaosGallantmon",
+    "mana": "9BRR",
+    "type": "Legendary Creature — Virus Mega+ Knight Dragon Digimon",
+    "pt": "11/11",
+    "rules": "Flying, trample\nWhen this enters, return up to one target creature card from a graveyard to the battlefield under your control. It gains haste. Exile it at the beginning of the next end step.\nIf it evolved from Megidramon, return up to two target creature cards that way instead.\nWhenever you sacrifice a creature, ChaosGallantmon deals 2 damage to each opponent.\nWarp from Guilmon"
+  },
+  {
+    "name": "Veemon, Bright-Hearted Challenger",
+    "mana": "{G}{U}",
+    "type": "Creature — Free Rookie Dragon Digimon",
+    "pt": "2/2",
+    "rules": "Whenever Veemon attacks, put a +1/+1 counter on up to one other target creature you control.\nWhen you activate a Shinka or Jogress Shinka ability, scry 1."
+  },
+  {
+    "name": "ExVeemon, Skybound Vanguard",
+    "mana": "2GU",
+    "type": "Creature — Free Adult Dragon Digimon",
+    "pt": "4/4",
+    "rules": "Flying\nWhen ExVeemon enters, draw a card. If it evolved from Veemon, create a 1/1 green and blue Free Rookie Dragon Digimon creature token with flying.\nWhenever one or more +1/+1 counters are put on a creature you control, ExVeemon gets +1/+1 until end of turn."
+  },
+  {
+    "name": "Wormmon, Quiet Resolve",
+    "mana": "1G",
+    "type": "Creature — Free Rookie Insect Digimon",
+    "pt": "1/3",
+    "rules": "When Wormmon enters, create a 1/1 green Insect creature token.\nWhenever you activate a Shinka or Jogress Shinka ability, put a +1/+1 counter on Wormmon."
+  },
+  {
+    "name": "Stingmon, Piercing Discipline",
+    "mana": "2GW",
+    "type": "Creature — Free Adult Insect Digimon",
+    "pt": "3/4",
+    "rules": "Deathtouch\nWhen Stingmon enters, tap up to one target creature. If it evolved from Wormmon, that creature doesn’t untap during its controller’s next untap step.\nWhenever a creature token you control attacks, it gets +1/+0 until end of turn."
+  },
+  {
+    "name": "Paildramon, DNA Convergence",
+    "mana": "4GWU",
+    "type": "Creature — Free Ultra Dragon Insect Digimon",
+    "pt": "6/6",
+    "rules": "Flying, vigilance\nWhen Paildramon enters, you may draw a card. Then you may put a +1/+1 counter on each of up to two target creatures you control.\nIf it evolved from ExVeemon and Stingmon, instead draw two cards and put a +1/+1 counter on each creature you control.\nWhenever Paildramon attacks, tap up to one target creature defending player controls."
+  },
+  {
+    "name": "Imperialdramon, Positron Tyrant",
+    "mana": "6GWU",
+    "type": "Legendary Creature — Free Mega Dragon Digimon",
+    "pt": "8/8",
+    "rules": "Flying, trample\nPositron Laser — When Imperialdramon enters, it deals 4 damage to each opponent and 4 damage to up to one target creature that player controls.\nIf it evolved from Paildramon, you may instead have Imperialdramon deal 6 damage to that player and 6 damage to that creature.\nAt the beginning of combat on your turn, put a +1/+1 counter on each creature you control.\nWarp from Veemon"
+  },
+  {
+    "name": "Imperialdramon, Vanguard Form",
+    "mana": "6GWU",
+    "type": "Legendary Creature — Free Mega Warrior Dragon Digimon",
+    "pt": "7/9",
+    "rules": "Flying, vigilance\nWhen this enters, choose up to one —\n• Return target nonland permanent to its owner’s hand.\n• Exile target tapped creature.\nIf it evolved from Paildramon, choose both instead.\nWhenever Imperialdramon attacks, untap up to one target creature you control. It gains hexproof until end of turn.\nWarp from Veemon"
+  },
+  {
+    "name": "Imperialdramon, Holy Sword Ascendant",
+    "mana": "9GWU",
+    "type": "Legendary Creature — Free Mega+ Knight Dragon Digimon",
+    "pt": "11/11",
+    "rules": "Flying, vigilance, trample, ward {3}\nWhen this enters, exile up to one target nonland permanent.\nIf it evolved from Imperialdramon, Vanguard Form, exile up to two target nonland permanents instead.\nYou can’t lose the game and your opponents can’t win the game.\nWhenever you activate a Shinka, Warp Shinka, or Jogress Shinka ability, put a shield counter on target creature you control.\nWarp from Veemon"
+  },
+  {
+    "name": "Veedramon, Wind-Run Dragoon",
+    "mana": "2WU",
+    "type": "Creature — Free Adult Dragon Digimon",
+    "pt": "3/4",
+    "rules": "Flying, vigilance\nWhen Veedramon enters, tap up to one target creature. If it evolved from Veemon, draw a card.\nWhenever Veedramon deals combat damage to a player, untap up to one target creature you control."
+  },
+  {
+    "name": "AeroVeedramon, Supersonic Lancer",
+    "mana": "4WU",
+    "type": "Creature — Free Ultra Dragon Digimon",
+    "pt": "5/6",
+    "rules": "Flying, ward {1}\nWhen AeroVeedramon enters, return up to one target creature to its owner’s hand.\nIf it evolved from Veedramon, return up to one target nonland permanent instead.\nWhenever AeroVeedramon attacks, you may untap it. If you do, it gains hexproof until end of turn."
+  },
+  {
+    "name": "UlforceVeedramon, Royal Speed",
+    "mana": "6WU",
+    "type": "Legendary Creature — Free Mega Dragon Knight Digimon",
+    "pt": "7/8",
+    "rules": "Flying, vigilance, ward {2}\nUltra Force — Whenever UlforceVeedramon deals combat damage to a player, draw a card. Then you may return up to one target nonland permanent that player controls to its owner’s hand.\nIf it evolved from AeroVeedramon, you may take an extra combat phase after this phase. This ability triggers only once each turn.\nWarp from Veemon"
+  },
+  {
+    "name": "JewelBeemon, Gilded Carapace",
+    "mana": "4GW",
+    "type": "Creature — Free Ultra Insect Digimon",
+    "pt": "5/6",
+    "rules": "Vigilance\nWhen JewelBeemon enters, create two 1/1 green Insect creature tokens.\nIf it evolved from Stingmon, put a +1/+1 counter on each Insect you control.\nWhenever one or more Insects you control deal combat damage to a player, draw a card."
+  },
+  {
+    "name": "BanchoStingmon, Iron-Discipline",
+    "mana": "6GW",
+    "type": "Legendary Creature — Free Mega Insect Warrior Digimon",
+    "pt": "7/7",
+    "rules": "Deathtouch, vigilance\nWhen BanchoStingmon enters, return up to one target creature card with mana value 3 or less from your graveyard to the battlefield.\nIf it evolved from JewelBeemon, return up to one target creature card with mana value 5 or less instead.\nWhenever an Insect you control dies, put a +1/+1 counter on BanchoStingmon and create a 1/1 green Insect creature token.\nWarp from Wormmon"
+  },
+  {
+    "name": "Renamon, Silent Moon",
+    "mana": "1WU",
+    "type": "Creature — Data Rookie Beast Digimon",
+    "pt": "2/2",
+    "rules": "Ward {1}\nWhen Renamon enters, scry 2."
+  },
+  {
+    "name": "Kyubimon, Foxfire Votary",
+    "mana": "2WU",
+    "type": "Creature — Data Adult Beast Digimon",
+    "pt": "3/4",
+    "rules": "Prowess\nWhen Kyubimon enters, tap up to one target creature. If it evolved from Renamon, that creature doesn’t untap during its controller’s next untap step.\nWhenever you cast a noncreature spell, you gain 1 life."
+  },
+  {
+    "name": "Taomon, Talisman Adept",
+    "mana": "4WU",
+    "type": "Creature — Data Ultra Wizard Beast Digimon",
+    "pt": "5/6",
+    "rules": "When Taomon enters, create a 1/1 white and blue Spirit creature token with flying.\nIf it evolved from Kyubimon, create two of those tokens instead.\nWhenever you cast a noncreature spell, scry 1. Then you may draw a card if you control a token."
+  },
+  {
+    "name": "Sakuyamon, Sealing Shaman",
+    "mana": "6WU",
+    "type": "Legendary Creature — Data Mega Wizard Beast Digimon",
+    "pt": "7/7",
+    "rules": "Ward {2}\nWhen Sakuyamon enters, exile up to one target nonland permanent until Sakuyamon leaves the battlefield.\nIf it evolved from Taomon, you may exile up to two target nonland permanents until Sakuyamon leaves the battlefield.\nWhenever you cast a noncreature spell, you may return up to one target creature to its owner’s hand.\nWarp from Renamon"
+  },
+  {
+    "name": "Gammamon, Wide-Eyed Wonder",
+    "mana": "{U}{R}",
+    "type": "Creature — Vaccine Rookie Dinosaur Digimon",
+    "pt": "2/2",
+    "rules": "Whenever you cast a noncreature spell, put a +1/+1 counter on Gammamon. This ability triggers only once each turn.\nWhenever you activate a Shinka ability, you may draw a card. If you do, discard a card."
+  },
+  {
+    "name": "BetelGammamon, Blazing Valor",
+    "mana": "2UR",
+    "type": "Creature — Vaccine Adult Dinosaur Digimon",
+    "pt": "3/4",
+    "rules": "Haste\nWhen BetelGammamon enters, it deals 2 damage to any target. If it evolved from Gammamon, it deals 3 damage instead.\nWhenever you cast a noncreature spell, BetelGammamon gets +1/+0 until end of turn."
+  },
+  {
+    "name": "Canoweissmon, Star-Roar Herald",
+    "mana": "4WUR",
+    "type": "Creature — Vaccine Ultra Dragon Dinosaur Digimon",
+    "pt": "5/6",
+    "rules": "Flying\nWhen Canoweissmon enters, choose up to one —\n• Tap up to two target creatures.\n• Return up to one target nonland permanent to its owner’s hand.\nIf it evolved from BetelGammamon, choose both instead.\nWhenever you cast your second spell each turn, put a shield counter on target creature you control."
+  },
+  {
+    "name": "Siriusmon, Stellar Hero",
+    "mana": "6WUR",
+    "type": "Legendary Creature — Vaccine Mega Dragon Warrior Digimon",
+    "pt": "8/8",
+    "rules": "Flying, vigilance\nWhen Siriusmon enters, it deals 3 damage to each opponent.\nIf it evolved from Canoweissmon, choose one —\n• Put a shield counter on each creature you control.\n• Tap all creatures your opponents control.\nWhenever you cast your second spell each turn, Siriusmon gets +2/+0 until end of turn and you draw a card.\nWarp from Gammamon"
+  },
+  {
+    "name": "GulusGammamon, Grim Omen",
+    "mana": "{U}{B}{R}",
+    "type": "Creature — Virus Adult Dinosaur Digimon",
+    "pt": "3/2",
+    "rules": "Menace\nWhen GulusGammamon enters, each opponent discards a card.\nWhenever you activate a Dark Shinka or Warp Shinka ability, you may sacrifice another creature. If you do, Surveil 2."
+  },
+  {
+    "name": "Regulusmon, Predator King",
+    "mana": "4UBR",
+    "type": "Creature — Virus Ultra Dragon Dinosaur Digimon",
+    "pt": "6/6",
+    "rules": "Menace, trample\nWhen Regulusmon enters, each opponent sacrifices a creature.\nIf it evolved from GulusGammamon, you may instead have each opponent sacrifice a nonland permanent.\nWhenever you sacrifice a creature, Regulusmon deals 2 damage to each opponent."
+  },
+  {
+    "name": "Arcturusmon, Apocalypse Engine",
+    "mana": "6UBR",
+    "type": "Legendary Creature — Virus Mega Dragon Digimon",
+    "pt": "10/10",
+    "rules": "Flying, trample, ward {3}\nWhen Arcturusmon enters, each opponent discards two cards and loses 4 life.\nIf it evolved from Regulusmon, you may cast up to one target instant or sorcery card from a graveyard without paying its mana cost.\nWhenever a permanent an opponent controls is put into a graveyard, create a Treasure token.\nWarp from GulusGammamon"
+  },
+  {
+    "name": "Jellymon, Cheeky Current",
+    "mana": "1U",
+    "type": "Creature — Data Rookie Aquatic Digimon",
+    "pt": "1/3",
+    "rules": "Flash\nWhenever Jellymon enters or attacks, you may return up to one target creature with mana value 2 or less to its owner’s hand."
+  },
+  {
+    "name": "TeslaJellymon, Voltage Vixen",
+    "mana": "2UR",
+    "type": "Creature — Data Adult Aquatic Digimon",
+    "pt": "3/4",
+    "rules": "Whenever TeslaJellymon enters, it deals 2 damage to any target. If it evolved from Jellymon, draw a card.\nWhenever you cast an instant or sorcery spell, untap TeslaJellymon."
+  },
+  {
+    "name": "Thetismon, Ocean-Hacker",
+    "mana": "4UR",
+    "type": "Creature — Data Ultra Aquatic Digimon",
+    "pt": "5/6",
+    "rules": "When Thetismon enters, draw two cards, then discard a card.\nIf it evolved from TeslaJellymon, you may return up to one target nonland permanent to its owner’s hand.\nWhenever you cast an instant or sorcery spell, Thetismon deals 1 damage to each opponent."
+  },
+  {
+    "name": "Amphimon, Overclock Paragon",
+    "mana": "6UR",
+    "type": "Legendary Creature — Data Mega Warrior Aquatic Digimon",
+    "pt": "7/7",
+    "rules": "Haste\nWhen Amphimon enters, you may counter target spell unless its controller pays {3}.\nIf it evolved from Thetismon, you may counter that spell without that player paying.\nWhenever you cast an instant or sorcery spell, copy it. You may choose new targets for the copy.\nWarp from Jellymon"
+  },
+  {
+    "name": "Impmon, Trouble’s Whisper",
+    "mana": "1B",
+    "type": "Creature — Virus Rookie Demon Digimon",
+    "pt": "2/1",
+    "rules": "Menace\nWhenever you discard one or more cards, Impmon deals 1 damage to each opponent. This ability triggers only once each turn."
+  },
+  {
+    "name": "Wizardmon, Hex Adept",
+    "mana": "2B",
+    "type": "Creature — Virus Adult Wizard Demon Digimon",
+    "pt": "3/3",
+    "rules": "When Wizardmon enters, you may discard a card. If you do, draw two cards.\nIf it evolved from Impmon, create a Treasure token."
+  },
+  {
+    "name": "Baalmon, Reckless Pact",
+    "mana": "4BR",
+    "type": "Creature — Virus Ultra Demon Digimon",
+    "pt": "5/5",
+    "rules": "Menace\nWhen Baalmon enters, each opponent loses 2 life and you gain 2 life.\nIf it evolved from Wizardmon, you may return up to one target creature card with mana value 2 or less from your graveyard to the battlefield.\nWhenever you sacrifice a creature or Treasure, Baalmon gets +2/+0 until end of turn."
+  },
+  {
+    "name": "Beelzemon, Demon Lord",
+    "mana": "6BR",
+    "type": "Legendary Creature — Virus Mega Demon Digimon",
+    "pt": "7/7",
+    "rules": "Menace, haste\nWhen Beelzemon enters, you may sacrifice up to one other creature or Treasure. When you do, it deals 4 damage to any target and you draw a card.\nIf it evolved from Baalmon, you may sacrifice up to two instead.\nWhenever you discard one or more cards, create a Treasure token. This ability triggers only once each turn.\nWarp from Impmon"
+  },
+  {
+    "name": "Beelzemon, Blast Mode",
+    "mana": "9BRR",
+    "type": "Legendary Creature — Virus Mega+ Demon Digimon",
+    "pt": "11/11",
+    "rules": "Menace, haste\nWhen this enters, discard your hand, then draw four cards.\nIf it evolved from Beelzemon, Demon Lord, it deals 6 damage to each opponent.\nWhenever you discard one or more cards, this deals 2 damage to any target. This ability triggers only once each turn."
+  },
+  {
+    "name": "Dorumon, Proto-Cipher",
+    "mana": "{W}{B}",
+    "type": "Creature — Vaccine Rookie Beast Digimon",
+    "pt": "2/2",
+    "rules": "Ward {1}\nWhen Dorumon enters, surveil 2."
+  },
+  {
+    "name": "Dorugamon, Shadow Prowler",
+    "mana": "2WB",
+    "type": "Creature — Vaccine Adult Beast Digimon",
+    "pt": "3/4",
+    "rules": "Menace\nWhen Dorugamon enters, exile up to one target card from a graveyard. If it evolved from Dorumon, draw a card."
+  },
+  {
+    "name": "DoruGreymon, Gatekeeper of the X-Antibody",
+    "mana": "4WUB",
+    "type": "Creature — Vaccine Ultra Dragon Warrior Digimon",
+    "pt": "5/6",
+    "rules": "Flying\nWhen DoruGreymon enters, exile up to one target nonland permanent until DoruGreymon leaves the battlefield.\nIf it evolved from Dorugamon, you may also return up to one target creature card from your graveyard to your hand.\nWhenever an opponent casts a spell from anywhere other than their hand, they lose 2 life and you gain 2 life."
+  },
+  {
+    "name": "Alphamon, Royal Knight",
+    "mana": "6WUB",
+    "type": "Legendary Creature — Vaccine Mega Knight Digimon",
+    "pt": "7/7",
+    "rules": "Vigilance, ward {2}\nWhen Alphamon enters, exile up to one target nonland permanent.\nIf it evolved from DoruGreymon, exile up to two target nonland permanents instead.\nOnce each turn, when a spell or ability an opponent controls targets you or a permanent you control, you may counter that spell or ability unless its controller pays {3}.\nWarp from Dorumon"
+  },
+  {
+    "name": "Alphamon Ouryuken, Omega Blade",
+    "mana": "9WUB",
+    "type": "Legendary Creature — Vaccine Mega+ Knight Digimon",
+    "pt": "11/11",
+    "rules": "Vigilance, trample, ward {3}\nWhen this enters, exile up to one target nonland permanent. Then you may return up to one exiled card you own to your hand.\nIf it evolved from Alphamon, instead exile up to two target nonland permanents and return up to two exiled cards you own to your hand.\nWhenever you activate a Shinka or Warp Shinka ability, put a shield counter on target creature you control and draw a card."
+  },
+  {
+    "name": "Tinkermon, Airy Artisan",
+    "mana": "1W",
+    "type": "Creature — Data Rookie Fairy Digimon",
+    "pt": "1/2",
+    "rules": "Flying\nWhen Tinkermon enters, create a 1/1 white Fairy creature token with flying."
+  },
+  {
+    "name": "Kazemon, Gale Dancer",
+    "mana": "2WU",
+    "type": "Creature — Data Adult Fairy Digimon",
+    "pt": "3/3",
+    "rules": "Flying\nWhen Kazemon enters, tap up to one target creature. If it evolved from Tinkermon, draw a card.\nWhenever a creature token you control attacks, it gets +1/+0 until end of turn."
+  },
+  {
+    "name": "Shutumon, Storm Sutra",
+    "mana": "4WU",
+    "type": "Creature — Data Ultra Fairy Digimon",
+    "pt": "5/5",
+    "rules": "Flying, ward {1}\nWhen Shutumon enters, return up to one target nonland permanent to its owner’s hand.\nIf it evolved from Kazemon, create two 1/1 white Fairy creature tokens with flying.\nWhenever you cast a noncreature spell, tap up to one target creature. It doesn’t untap during its controller’s next untap step."
+  },
+  {
+    "name": "JetSilphymon, Sky-Fusion",
+    "mana": "6WU",
+    "type": "Legendary Creature — Data Mega Fairy Digimon",
+    "pt": "7/7",
+    "rules": "Flying, vigilance, ward {2}\nWhen JetSilphymon enters, return up to one target nonland permanent to its owner’s hand and tap up to two target creatures.\nIf it evolved from Shutumon, create three 1/1 white Fairy creature tokens with flying.\nWhenever JetSilphymon attacks, you may exile another target creature you control, then return it to the battlefield under its owner’s control. If you do, draw a card.\nWarp from Tinkermon"
+  },
+  {
+    "name": "Salamon, Gentle Light",
+    "mana": "1W",
+    "type": "Creature — Vaccine Rookie Hound Digimon",
+    "pt": "1/2",
+    "rules": "Lifelink\nWhenever Salamon attacks, you may tap target creature an opponent controls.\nIf you activate a Shinka or Warp Shinka ability, you gain 1 life."
+  },
+  {
+    "name": "Gatomon, Loyal Sentinel",
+    "mana": "3W",
+    "type": "Creature — Vaccine Adult Cat Digimon",
+    "pt": "3/3",
+    "rules": "Vigilance\nWhen Gatomon enters, create a 1/1 white Vaccine Rookie Angel Digimon creature token with flying. If it evolved from Salamon, create two of those tokens instead.\nWhenever you gain life, put a +1/+1 counter on up to one target Digimon you control."
+  },
+  {
+    "name": "Angewomon, Heaven’s Charm",
+    "mana": "4WW",
+    "type": "Creature — Vaccine Ultra Angel Digimon",
+    "pt": "4/5",
+    "rules": "Flying, lifelink\nHeaven’s Charm — When Angewomon enters, put a shield counter on up to one target creature you control. If it evolved from Gatomon, put shield counters on up to two target creatures you control instead.\nWhenever you gain life, exile up to one target card from a graveyard. If a Digimon card is exiled this way, create a 1/1 white Vaccine Rookie Angel Digimon creature token with flying."
+  },
+  {
+    "name": "Ophanimon, Throne of Mercy",
+    "mana": "6WW",
+    "type": "Legendary Creature — Vaccine Mega Angel Digimon",
+    "pt": "6/7",
+    "rules": "Flying, vigilance, lifelink\nWhen Ophanimon enters, return up to one target creature card from your graveyard to the battlefield. If it evolved from Angewomon, return up to two target creature cards instead.\nWhenever you gain life, put a shield counter on target Digimon you control.\nWarp from Salamon"
+  },
+  {
+    "name": "Holydramon, Sacred Dawn",
+    "mana": "6WW",
+    "type": "Legendary Creature — Vaccine Mega Dragon Digimon",
+    "pt": "7/7",
+    "rules": "Flying, lifelink\nWhen Holydramon enters, you gain 7 life. If it evolved from Angewomon, creatures you control gain indestructible until end of turn.\nWhenever you gain life, choose one. This ability triggers only once each turn.\n• Put a +1/+1 counter on target creature you control.\n• Tap target creature an opponent controls. It doesn’t untap during its controller’s next untap step.\nWarp from Salamon"
+  },
+  {
+    "name": "Patamon, Hope’s Wingbeat",
+    "mana": "1W",
+    "type": "Creature — Vaccine Rookie Beast Digimon",
+    "pt": "1/2",
+    "rules": "Flying\nWhenever Patamon attacks, scry 1.\nIf you activate a Shinka or Warp Shinka ability, prevent the next 1 damage that would be dealt to any target this turn."
+  },
+  {
+    "name": "Angemon, Winged Covenant",
+    "mana": "3W",
+    "type": "Creature — Vaccine Adult Angel Digimon",
+    "pt": "3/3",
+    "rules": "Flying\nWhen Angemon enters, exile target creature an opponent controls until Angemon leaves the battlefield. If it evolved from Patamon, you may exile a creature with mana value 4 or less this way.\nWhenever an exiled card returns to the battlefield, you gain 2 life."
+  },
+  {
+    "name": "HolyAngemon, Gate of Destiny",
+    "mana": "4WW",
+    "type": "Creature — Vaccine Ultra Angel Digimon",
+    "pt": "4/6",
+    "rules": "Flying, vigilance\nGate of Destiny — When HolyAngemon enters, exile up to one target nonland permanent until HolyAngemon leaves the battlefield. If it evolved from Angemon, exile up to two target nonland permanents instead.\nWhenever one or more cards leave exile, draw a card. This ability triggers only once each turn."
+  },
+  {
+    "name": "Seraphimon, Sevenfold Light",
+    "mana": "6WW",
+    "type": "Legendary Creature — Vaccine Mega Angel Digimon",
+    "pt": "6/6",
+    "rules": "Flying, vigilance\nWhen Seraphimon enters, put two shield counters on it. Then put a shield counter on each other Digimon you control. If it evolved from HolyAngemon, draw a card for each opponent.\nWhenever Seraphimon attacks, you may remove a shield counter from it. When you do, exile target nonland permanent an opponent controls until Seraphimon leaves the battlefield.\nWarp from Patamon"
+  },
+  {
+    "name": "Goddramon, Golden Judgment",
+    "mana": "6WW",
+    "type": "Legendary Creature — Vaccine Mega Dragon Digimon",
+    "pt": "7/7",
+    "rules": "Flying, trample, vigilance\nWhen Goddramon enters, it deals 3 damage to each opponent and you gain life equal to the damage dealt this way. If it evolved from HolyAngemon, tap all creatures your opponents control. Those creatures don’t untap during their controllers’ next untap steps.\nWhenever you gain life, Goddramon deals 1 damage to any target. This ability triggers only once each turn.\nWarp from Patamon"
+  }
+]

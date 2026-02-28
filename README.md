@@ -62,6 +62,8 @@ Compose mounts:
 
 Container runs on `0.0.0.0:3000` and joins an external proxy network (default: `npm_default`).
 
+`docker-compose.yml` includes a container `healthcheck` that probes `http://localhost:3000/` with retries so orchestrators and proxy stacks can detect readiness.
+
 Optional Docker env vars:
 - `PROXY_NETWORK` (default `npm_default`) — must match the Docker network your NGINX/proxy container is attached to.
 
@@ -69,6 +71,7 @@ Optional Docker env vars:
 ### Docker troubleshooting
 - Ensure NGINX and `custom-mtg-gallery` are attached to the same Docker network (`PROXY_NETWORK`).
 - In your NGINX config, set the upstream target to `custom-mtg-gallery:3000`.
+- When your reverse proxy stack supports it, configure upstream/load-balancer routing to send traffic only to healthy containers (using the service healthcheck status).
 
 ## Manual test checklist
 Using sample `sets/digiMTG/...`:

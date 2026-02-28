@@ -1,0 +1,149 @@
+[
+  {
+    "name": "Taichi, Crest of Courage",
+    "mana": "1RW",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "3/2",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Agumon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, it deals 2 damage to any target. This ability triggers only once each turn.\nAs long as you control a Digivice, Digimon you control have vigilance."
+  },
+  {
+    "name": "Yamato, Crest of Friendship",
+    "mana": "1UB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Gabumon.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka or Warp Shinka ability, tap up to one target creature an opponent controls. Put a stun counter on it. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, surveil 1. This ability triggers only once each turn."
+  },
+  {
+    "name": "Hikari, Crest of Light",
+    "mana": "1WB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Salamon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, you gain 2 life and you may put a shield counter on up to one target Digimon you control. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, each opponent loses 1 life and you gain 1 life. This ability triggers only once each turn."
+  },
+  {
+    "name": "Takato, Blue Card Prodigy",
+    "mana": "1RG",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "3/2",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Guilmon.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka or Warp Shinka ability, you may discard a card. If you do, draw a card. Then target Digimon you control gets +2/+0 and gains trample until end of turn. This ability triggers only once each turn.\nAs long as you control a Digivice, the first time each turn a Digimon enters the battlefield under your control from your library, it deals 1 damage to any target."
+  },
+  {
+    "name": "Mimi, Palmon’s Sunshine",
+    "mana": "1GW",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Palmon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, create a 1/1 green Data Rookie Plant Digimon creature token. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, populate. This ability triggers only once each turn."
+  },
+  {
+    "name": "Rika, Renamon’s Rival",
+    "mana": "1UR",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "3/2",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Renamon.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka or Warp Shinka ability, tap up to one target creature an opponent controls. It doesn’t untap during its controller’s next untap step. This ability triggers only once each turn.\nAs long as you control a Digivice, the first time each turn a Digimon enters the battlefield under your control from your library, that Digimon gains haste until end of turn."
+  },
+  {
+    "name": "Menoa, Eden Architect",
+    "mana": "2WU",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Morphomon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, create a token that’s a copy of that Digimon, except it’s not legendary and it’s a 1/1. Exile that token at the beginning of the next end step. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, scry 2. This ability triggers only once each turn."
+  },
+  {
+    "name": "Takeru, Crest of Hope",
+    "mana": "1WU",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Patamon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, you gain 2 life and you may put a shield counter on it. This ability triggers only once each turn.\nDigimon you control with one or more shield counters have flying."
+  },
+  {
+    "name": "Reina, Glowing Dawn Sub-Leader",
+    "mana": "1RG",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "3/2",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Pristimon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, it gets +2/+0 and gains trample until end of turn. If you control a Digivice, untap it. This ability triggers only once each turn."
+  },
+  {
+    "name": "Sakai, Five Planets “Water”",
+    "mana": "1UB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, surveil 2.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, tap up to one target creature an opponent controls. It doesn’t untap during its controller’s next untap step. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, scry 1. This ability triggers only once each turn."
+  },
+  {
+    "name": "Ami, Cyber Sleuth",
+    "mana": "1UB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, look at the top six cards of your library. You may reveal a Digimon or Digivice card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, surveil 1. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, investigate. This ability triggers only once each turn."
+  },
+  {
+    "name": "Kanan, Time Stranger",
+    "mana": "1WUB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, look at the top five cards of your library. You may reveal a Digimon or Digivice card from among them and put it into your hand. Put the rest into your graveyard.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, tap up to one target creature an opponent controls. Put a stun counter on it. This ability triggers only once each turn.\nAs long as you control a Digivice, the first time each turn a Digimon enters the battlefield under your control from your library, you may untap it."
+  },
+  {
+    "name": "Nokia, Self-Proclaimed Digimon Hero",
+    "mana": "1WUR",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, choose one —\n• materialize Agumon.\n• materialize Gabumon.\nDigimon creatures you control have Shinka {2} and Jogress Shinka {2}.\nWhenever you activate a Jogress Shinka ability, choose one — draw a card; or put a shield counter on target Digimon you control. This ability triggers only once each turn.\nAs long as you control a Digivice, the first Jogress Shinka ability you activate each turn costs {1} less to activate."
+  },
+  {
+    "name": "Kyoko, DigiLab Director",
+    "mana": "1WU",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, look at the top six cards of your library. You may reveal a Digimon or Digivice card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, investigate. This ability triggers only once each turn.\nAs long as you control a Digivice, the first time each turn you sacrifice a Clue, tap up to one target nonland permanent. It doesn’t untap during its controller’s next untap step."
+  },
+  {
+    "name": "Mirei, DigiLab Enigma",
+    "mana": "1WUB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Salamon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, choose one —\n• Put a shield counter on that Digimon.\n• Tap up to one target creature an opponent controls. Put a stun counter on it.\nThis ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, return up to one target Digimon card from your graveyard to your hand. This ability triggers only once each turn."
+  },
+  {
+    "name": "Rina, Boastful Ace",
+    "mana": "1UR",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Veemon.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka or Warp Shinka ability, draw a card, then discard a card. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, untap up to one target Digimon you control. It gets +1/+0 until end of turn. This ability triggers only once each turn."
+  },
+  {
+    "name": "Sayo, Team Moonlight Captain",
+    "mana": "1WUB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, look at the top six cards of your library. You may reveal a Digimon or Digivice card from among them and put it into your hand. Put the rest into your graveyard.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, each opponent loses 1 life and you gain 1 life. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, return up to one target Digimon card with mana value 3 or less from your graveyard to your hand. This ability triggers only once each turn."
+  },
+  {
+    "name": "Yuuko, Stolen-Avatar Survivor",
+    "mana": "1UBR",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/4",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, look at the top six cards of your library. You may reveal a Digimon or Digivice card from among them and put it into your hand. Put the rest into your graveyard.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, you may discard a card. If you do, draw a card. This ability triggers only once each turn.\nAs long as you control a Digivice, the first time each turn you discard one or more cards, Yuuko deals 1 damage to each opponent."
+  },
+  {
+    "name": "Akiho, Legendary Nyanko Tamer",
+    "mana": "1RW",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "3/2",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Digitorin.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka or Warp Shinka ability, reveal the top card of your library. If it’s a Vaccine Digimon card, put it into your hand. Otherwise, put it into your graveyard. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, Digimon you control get +1/+0 until end of turn. This ability triggers only once each turn."
+  },
+  {
+    "name": "Shiki, Two-Partner Raiser",
+    "mana": "1GW",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, choose one — materialize Piyomon; or materialize Palmon.\nDigimon creatures you control have Shinka {2}.\nWhenever a Digimon enters the battlefield under your control from your library, create a 1/1 green Data Rookie Plant Digimon creature token. This ability triggers only once each turn.\nAt the beginning of your end step, if you control two or more Digimon, draw a card. This ability triggers only once each turn."
+  },
+  {
+    "name": "Violet, Ghost’s Reanimator",
+    "mana": "1UB",
+    "type": "Legendary Creature — Human Tamer",
+    "pt": "2/3",
+    "rules": "When this enters the battlefield, if you cast it from your command zone, materialize Ghostmon.\nDigimon creatures you control have Shinka {2}.\nWhenever you activate a Shinka, Warp Shinka, Jogress Shinka, or Dark Shinka ability, surveil 2. This ability triggers only once each turn.\nWhenever you activate an ability of a Digivice, return up to one target Digimon card from your graveyard to your hand. This ability triggers only once each turn."
+  }
+]

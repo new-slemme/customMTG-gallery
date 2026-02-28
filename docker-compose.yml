@@ -2,13 +2,13 @@ services:
   custom-mtg-gallery:
     container_name: custom-mtg-gallery
     build: .
-    ports:
-      - "3000:3000"
+#    ports:
+#      - "3000:3000"
     environment:
       - NODE_ENV=production
       - SETS_DIR=/app/sets
       - DATA_DIR=/app/data
-      - GALLERY_PASSWORD=
+      - GALLERY_PASSWORD=DigiMTG
     volumes:
       - ./sets:/app/sets:ro
       - ./data:/app/data

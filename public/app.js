@@ -38,13 +38,10 @@ function parseTypeLine(typeLine) {
 
   const normalized = raw.replace(/\s+[—-]\s+/, "—");
   const parts = normalized.split("—");
-  const left = parts[0] || "";
+  const left = (parts[0] || "").trim();
   const right = parts.slice(1).join("—");
 
-  const mainTypes = left
-    .split(/\s+/)
-    .map((token) => token.trim())
-    .filter(Boolean);
+  const mainTypes = left ? [left] : [];
 
   const subtypes = right
     .split(/\s+/)

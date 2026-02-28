@@ -13,9 +13,10 @@ services:
       - ./sets:/app/sets:ro
       - ./data:/app/data
     networks:
-      - npm_default
+      - proxy
     restart: unless-stopped
 
 networks:
-  npm_default:
+  proxy:
+    name: ${PROXY_NETWORK:-npm_default}
     external: true

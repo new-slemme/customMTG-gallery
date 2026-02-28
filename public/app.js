@@ -1,5 +1,7 @@
 const setSelect = document.getElementById("setSelect");
 const searchInput = document.getElementById("searchInput");
+const typeFilter = document.getElementById("typeFilter");
+const subtypeFilter = document.getElementById("subtypeFilter");
 const grid = document.getElementById("grid");
 const emptyState = document.getElementById("emptyState");
 const subtitle = document.getElementById("subtitle");
@@ -29,6 +31,66 @@ let state = {
   filtered: [],
   selectedCard: null
 };
+
+function parseTypeLine(typeLine) {
+  const raw = typeof typeLine === "string" ? typeLine.trim() : "";
+  if (!raw) return { mainTypes: [], subtypes: [] };
+
+  const normalized = raw.replace(/\s+[—-]\s+/, "—");
+  const parts = normalized.split("—");
+  const left = parts[0] || "";
+  const right = parts.slice(1).join("—");
+
+  const mainTypes = left
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter(Boolean);
+
+  const subtypes = right
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter(Boolean);
+
+  return { mainTypes, subtypes };
+}
+
+function populateFilterOptions(cards) {
+  const typeSet = new Set();
+  const subtypeSet = new Set();
+
+  for (const card of cards) {
+    const { mainTypes, subtypes } = parseTypeLine(card.type);
+    for (const token of mainTypes) typeSet.add(token);
+    for (const token of subtypes) subtypeSet.add(token);
+  }
+
+  const typeOptions = Array.from(typeSet).sort((a, b) => a.localeCompare(b));
+  const subtypeOptions = Array.from(subtypeSet).sort((a, b) => a.localeCompare(b));
+
+  typeFilter.innerHTML = "";
+  const allType = document.createElement("option");
+  allType.value = "";
+  allType.textContent = "All types";
+  typeFilter.appendChild(allType);
+  for (const type of typeOptions) {
+    const opt = document.createElement("option");
+    opt.value = type;
+    opt.textContent = type;
+    typeFilter.appendChild(opt);
+  }
+
+  subtypeFilter.innerHTML = "";
+  const allSubtype = document.createElement("option");
+  allSubtype.value = "";
+  allSubtype.textContent = "All subtypes";
+  subtypeFilter.appendChild(allSubtype);
+  for (const subtype of subtypeOptions) {
+    const opt = document.createElement("option");
+    opt.value = subtype;
+    opt.textContent = subtype;
+    subtypeFilter.appendChild(opt);
+  }
+}
 
 async function api(url, opts) {
   const res = await fetch(url, opts);
@@ -95,15 +157,18 @@ function renderGrid(cards) {
 
 function applySearch() {
   const q = (searchInput.value || "").trim().toLowerCase();
-  if (!q) {
-    state.filtered = state.cards;
-    renderGrid(state.filtered);
-    return;
-  }
+  const selectedType = (typeFilter.value || "").trim();
+  const selectedSubtype = (subtypeFilter.value || "").trim();
 
   state.filtered = state.cards.filter((c) => {
     const hay = `${c.name}\n${c.type}\n${c.mana}\n${c.pt}\n${c.rules}`.toLowerCase();
-    return hay.includes(q);
+    const textMatch = !q || hay.includes(q);
+
+    const { mainTypes, subtypes } = parseTypeLine(c.type);
+    const typeMatch = !selectedType || mainTypes.includes(selectedType);
+    const subtypeMatch = !selectedSubtype || subtypes.includes(selectedSubtype);
+
+    return textMatch && typeMatch && subtypeMatch;
   });
 
   renderGrid(state.filtered);
@@ -143,8 +208,12 @@ async function loadCards(setKey) {
     ? `${setMeta.title} • ${setMeta.hasImagesCount}/${setMeta.cardsCount} images found`
     : `${setKey}`;
 
+  populateFilterOptions(state.cards);
+
   searchInput.value = "";
-  renderGrid(state.cards);
+  typeFilter.value = "";
+  subtypeFilter.value = "";
+  applySearch();
 }
 
 function openModal() {
@@ -275,6 +344,8 @@ setSelect.addEventListener("change", async () => {
 });
 
 searchInput.addEventListener("input", applySearch);
+typeFilter.addEventListener("change", applySearch);
+subtypeFilter.addEventListener("change", applySearch);
 
 closeModalBtn.addEventListener("click", closeModal);
 modalBackdrop.addEventListener("click", (e) => {

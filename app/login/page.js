@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function LoginPage() {
+function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -36,5 +36,13 @@ export default function LoginPage() {
       </form>
       {error && <p>{error}</p>}
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div style={{ maxWidth: 400 }}><h1>Gallery Password</h1></div>}>
+      <LoginForm />
+    </Suspense>
   );
 }

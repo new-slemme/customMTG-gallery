@@ -31,12 +31,43 @@ function titleFromFolder(name) {
     .replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
+function parseCardTypeLine(typeLine) {
+  const raw = String(typeLine || "").trim();
+  if (!raw) return { types: [], subtypes: [] };
+
+  // Type lines are usually `Type — Subtype`.
+  // We accept em/en dashes (`—`/`–`) with optional spaces, plus spaced hyphen (` - `)
+  // for custom files that cannot easily enter a true dash character.
+  // We intentionally do NOT split on bare `-` so subtype tokens like `Assembly-Worker`
+  // remain intact.
+  const delimiterMatch = raw.match(/\s*[—–]\s*|\s-\s/);
+  const delimiterIndex = delimiterMatch?.index ?? -1;
+  const leftSide = delimiterIndex >= 0 ? raw.slice(0, delimiterIndex).trim() : raw;
+  const rightSide = delimiterIndex >= 0 ? raw.slice(delimiterIndex + delimiterMatch[0].length).trim() : "";
+
+  // Split on one-or-more whitespace runs so custom cards with extra spacing still parse
+  // into normalized tokens.
+  const toTokens = (value) =>
+    value
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter(Boolean);
+
+  return {
+    types: toTokens(leftSide),
+    subtypes: toTokens(rightSide)
+  };
+}
+
 function normalizeCard(obj) {
   // Keep your fields, just normalize known ones for display
   const card = { ...obj };
   card.name = String(card.name || "").trim();
   card.mana = card.mana != null ? String(card.mana) : "";
   card.type = card.type != null ? String(card.type) : "";
+  const parsedType = parseCardTypeLine(card.type);
+  card.types = parsedType.types;
+  card.subtypes = parsedType.subtypes;
   card.pt = card.pt != null ? String(card.pt) : "";
   card.rules = card.rules != null ? String(card.rules) : "";
   return card;
@@ -274,6 +305,8 @@ app.get("/api/sets/:setKey/cards", (req, res) => {
     name: c.name,
     mana: c.mana,
     type: c.type,
+    types: c.types,
+    subtypes: c.subtypes,
     pt: c.pt,
     rules: c.rules,
     hasImage: c.hasImage,

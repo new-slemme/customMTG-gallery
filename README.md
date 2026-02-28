@@ -60,7 +60,15 @@ Compose mounts:
 - `./sets:/app/sets:ro`
 - `./data:/app/data`
 
-Container runs on `0.0.0.0:3000` and joins external `npm_default` network.
+Container runs on `0.0.0.0:3000` and joins an external proxy network (default: `npm_default`).
+
+Optional Docker env vars:
+- `PROXY_NETWORK` (default `npm_default`) — must match the Docker network your NGINX/proxy container is attached to.
+
+
+### Docker troubleshooting
+- Ensure NGINX and `custom-mtg-gallery` are attached to the same Docker network (`PROXY_NETWORK`).
+- In your NGINX config, set the upstream target to `custom-mtg-gallery:3000`.
 
 ## Manual test checklist
 Using sample `sets/digiMTG/...`:
@@ -70,4 +78,4 @@ Using sample `sets/digiMTG/...`:
 4. Cards without images show placeholder.
 5. Clicking card opens modal with readable rules text lines.
 6. Posting feedback appears immediately and persists after container restart.
-7. `docker compose up` succeeds with external `npm_default` network present.
+7. `docker compose up` succeeds with the external proxy network (`PROXY_NETWORK`, default `npm_default`) present.

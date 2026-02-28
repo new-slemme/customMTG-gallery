@@ -1,0 +1,21 @@
+services:
+  custom-mtg-gallery:
+    container_name: custom-mtg-gallery
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - SETS_DIR=/app/sets
+      - DATA_DIR=/app/data
+      - GALLERY_PASSWORD=
+    volumes:
+      - ./sets:/app/sets:ro
+      - ./data:/app/data
+    networks:
+      - npm_default
+    restart: unless-stopped
+
+networks:
+  npm_default:
+    external: true

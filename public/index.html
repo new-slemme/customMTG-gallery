@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom MTG Gallery</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🃏</div>
+        <div>
+          <div class="title">Custom MTG Gallery</div>
+          <div class="subtitle" id="subtitle">Loading sets…</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <select id="setSelect"></select>
+        <input id="searchInput" type="search" placeholder="Search cards…" />
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="emptyState" class="empty hidden"></div>
+      <div id="grid" class="grid"></div>
+    </main>
+
+    <div id="modalBackdrop" class="backdrop hidden">
+      <div class="modal">
+        <button id="closeModal" class="close">✕</button>
+
+        <div class="modalBody">
+          <div class="modalLeft">
+            <div id="modalImageWrap" class="imageWrap"></div>
+          </div>
+
+          <div class="modalRight">
+            <div class="cardHeader">
+              <div>
+                <div id="cardName" class="cardName"></div>
+                <div id="cardType" class="cardType"></div>
+              </div>
+              <div class="manaPt">
+                <div id="cardMana" class="cardMana"></div>
+                <div id="cardPT" class="cardPT"></div>
+              </div>
+            </div>
+
+            <div class="rulesBlock">
+              <div class="sectionTitle">Rules</div>
+              <pre id="cardRules" class="rules"></pre>
+              <button id="copyText" class="btn">Copy text</button>
+            </div>
+
+            <div class="feedbackBlock">
+              <div class="sectionTitle">Feedback</div>
+              <div id="feedbackList" class="feedbackList"></div>
+
+              <form id="feedbackForm" class="feedbackForm">
+                <div class="row">
+                  <input id="fbName" placeholder="Your name" maxlength="40" required />
+                  <select id="fbRating">
+                    <option value="">Rating (optional)</option>
+                    <option value="1">1 - Too weak</option>
+                    <option value="2">2</option>
+                    <option value="3">3 - OK</option>
+                    <option value="4">4</option>
+                    <option value="5">5 - Too strong</option>
+                  </select>
+                </div>
+                <textarea id="fbComment" placeholder="Comment" maxlength="2000" required></textarea>
+                <button class="btn primary" type="submit">Submit</button>
+                <div id="fbStatus" class="status"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+services:
+  custom-mtg-gallery:
+    build: .
+    container_name: custom-mtg-gallery
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - SETS_DIR=/sets
+      - DATA_DIR=/data
+      - SCAN_INTERVAL_SECONDS=10
+    volumes:
+      # Mount your existing sets folder (read-only)
+      - ./sets:/sets:ro
+      # Persist feedback/comments
+      - ./gallery-data:/data
+    networks:
+      - npm_default
+    # Optional (nice for local testing without NPM):
+    # ports:
+    #   - "127.0.0.1:3000:3000"
+
+networks:
+  npm_default:
+    external: true

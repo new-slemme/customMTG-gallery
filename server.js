@@ -301,7 +301,20 @@ async function scanSets() {
     return;
   }
 
-  const setFolders = dirents.filter((d) => d.isDirectory()).map((d) => d.name);
+  // On some filesystems (overlay, older kernels) d_type is DT_UNKNOWN so
+  // Dirent.isDirectory() always returns false.  Fall back to fsp.stat() in
+  // that case so Docker bind-mounts on e.g. Linux 4.x still work.
+  const setFolders = [];
+  for (const d of dirents) {
+    if (d.isDirectory()) {
+      setFolders.push(d.name);
+    } else {
+      try {
+        const st = await fsp.stat(path.join(SETS_DIR, d.name));
+        if (st.isDirectory()) setFolders.push(d.name);
+      } catch { /* skip unreadable entries */ }
+    }
+  }
   const sets = [];
   const cardsBySet = new Map();
   const cardById = new Map();

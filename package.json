@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "main": "server.js",
+  "scripts": {
+    "gen-art-crops": "node scripts/gen-art-crops.js",
+    "gen-art-crops:force": "node scripts/gen-art-crops.js --force"
+  },
   "dependencies": {
     "express": "^4.19.2",
     "sharp": "^0.33.0"

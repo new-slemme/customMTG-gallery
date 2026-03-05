@@ -111,6 +111,22 @@ async function fileExists(p) {
   }
 }
 
+const THUMBS_DIR = path.join(DATA_DIR, "thumbs");
+const THUMB_WIDTH = 280;
+
+async function getOrCreateThumb(setKey, filename, srcPath) {
+  const thumbDir = path.join(THUMBS_DIR, setKey);
+  const thumbPath = path.join(thumbDir, `${filename}.webp`);
+  if (await fileExists(thumbPath)) return thumbPath;
+  await fsp.mkdir(thumbDir, { recursive: true });
+  const { default: sharp } = await import("sharp");
+  await sharp(srcPath)
+    .resize(THUMB_WIDTH, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(thumbPath);
+  return thumbPath;
+}
+
 async function readJsonFile(p) {
   const txt = await fsp.readFile(p, "utf8");
   return JSON.parse(txt);
@@ -232,7 +248,8 @@ async function scanSets() {
         id,
         set: setKey,
         hasImage,
-        imageUrl: hasImage ? `/api/sets/${encodeURIComponent(setKey)}/images/${encodeURIComponent(imageFile)}` : null
+        imageUrl: hasImage ? `/api/sets/${encodeURIComponent(setKey)}/images/${encodeURIComponent(imageFile)}` : null,
+        thumbUrl: hasImage ? `/api/sets/${encodeURIComponent(setKey)}/thumbnails/${encodeURIComponent(imageFile)}` : null
       };
 
       hydrated.push(cardRecord);
@@ -316,7 +333,8 @@ app.get("/api/sets/:setKey/cards", (req, res) => {
     pt: c.pt,
     rules: c.rules,
     hasImage: c.hasImage,
-    imageUrl: c.imageUrl
+    imageUrl: c.imageUrl,
+    thumbUrl: c.thumbUrl
   }));
 
   res.json({ set: setKey, cards: list, scannedAt: scanCache.scannedAt });
@@ -370,6 +388,26 @@ app.post("/api/cards/:cardId/feedback", async (req, res) => {
   });
 
   res.status(201).json({ ok: true, entry });
+});
+
+// Serve resized WebP thumbnails (cached in DATA_DIR/thumbs)
+app.get("/api/sets/:setKey/thumbnails/:filename", async (req, res) => {
+  const { setKey, filename } = req.params;
+  const setDir = safeJoin(SETS_DIR, setKey);
+  const imgDir = safeJoin(setDir, "cards_images");
+  const imgPath = safeJoin(imgDir, filename);
+
+  if (!(await fileExists(imgPath))) return res.status(404).send("Not found");
+
+  try {
+    const thumbPath = await getOrCreateThumb(setKey, filename, imgPath);
+    res.setHeader("Content-Type", "image/webp");
+    res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+    res.sendFile(thumbPath);
+  } catch (err) {
+    console.error("[thumb] generation failed, falling back to original:", err.message);
+    res.sendFile(imgPath);
+  }
 });
 
 // Serve images only from cards_images, with traversal protection

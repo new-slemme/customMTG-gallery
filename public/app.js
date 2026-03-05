@@ -123,7 +123,7 @@ function renderGrid(cards) {
       const img = document.createElement("img");
       img.className = "thumb";
       img.loading = "lazy";
-      img.src = c.imageUrl;
+      img.src = c.thumbUrl || c.imageUrl;
       img.alt = c.name;
       tile.appendChild(img);
     } else {

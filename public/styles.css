@@ -28,21 +28,25 @@ body {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   justify-content: space-between;
   padding: 14px 16px;
+  flex-wrap: wrap;
 }
 
-.brand { display: flex; align-items: center; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .logo { font-size: 28px; }
 .title { font-weight: 800; letter-spacing: 0.2px; }
 .subtitle { color: var(--muted); font-size: 12px; margin-top: 2px; }
 
 .controls {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
 }
 
 select, input, textarea {
@@ -52,16 +56,17 @@ select, input, textarea {
   border-radius: 10px;
   padding: 10px 12px;
   outline: none;
+  min-height: 44px; /* accessible touch targets */
 }
 
-input[type="search"] { width: min(420px, 45vw); }
+input[type="search"] { width: min(420px, 45vw); flex: 1; min-width: 120px; }
 select { max-width: 320px; }
 
 .main { padding: 18px 16px 40px; }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(160px, 42vw), 1fr));
   gap: 12px;
 }
 
@@ -253,3 +258,34 @@ select { max-width: 320px; }
 
 textarea { min-height: 90px; resize: vertical; }
 .status { margin-top: 8px; color: var(--muted); font-size: 12px; }
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .brand { width: 100%; }
+
+  .controls {
+    width: 100%;
+  }
+
+  .controls select { flex: 1; min-width: 0; max-width: none; }
+
+  input[type="search"] { width: 100%; }
+
+  .main { padding: 12px 10px 32px; }
+
+  .grid { gap: 8px; }
+
+  .modal { border-radius: 14px; }
+
+  .modalBody { padding: 12px; gap: 12px; }
+
+  .cardName { font-size: 18px; }
+
+  .backdrop { padding: 10px; align-items: flex-end; }
+
+  .modal { max-height: 95vh; border-radius: 18px 18px 0 0; }
+}

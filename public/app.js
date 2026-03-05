@@ -56,7 +56,7 @@ function populateFilterOptions(cards) {
   const subtypeSet = new Set();
 
   for (const card of cards) {
-    const { mainTypes, subtypes } = parseTypeLine(card.type);
+    const { mainTypes, subtypes } = parseTypeLine(card.type_line);
     for (const token of mainTypes) typeSet.add(token);
     for (const token of subtypes) subtypeSet.add(token);
   }
@@ -106,6 +106,12 @@ function clearEmpty() {
   emptyState.classList.add("hidden");
 }
 
+function cardPT(card) {
+  if (card.power != null && card.toughness != null) return `${card.power}/${card.toughness}`;
+  if (card.loyalty != null) return `Loyalty: ${card.loyalty}`;
+  return "";
+}
+
 function renderGrid(cards) {
   grid.innerHTML = "";
   if (!cards.length) {
@@ -119,11 +125,11 @@ function renderGrid(cards) {
     tile.className = "cardTile";
     tile.addEventListener("click", () => openCard(c.id));
 
-    if (c.hasImage && c.imageUrl) {
+    if (c.image_uris) {
       const img = document.createElement("img");
       img.className = "thumb";
       img.loading = "lazy";
-      img.src = c.thumbUrl || c.imageUrl;
+      img.src = c.image_uris.small || c.image_uris.normal;
       img.alt = c.name;
       tile.appendChild(img);
     } else {
@@ -142,7 +148,7 @@ function renderGrid(cards) {
 
     const ty = document.createElement("div");
     ty.className = "tileType";
-    ty.textContent = c.type || "";
+    ty.textContent = c.type_line || "";
 
     meta.appendChild(nm);
     meta.appendChild(ty);
@@ -158,10 +164,10 @@ function applySearch() {
   const selectedSubtype = (subtypeFilter.value || "").trim();
 
   state.filtered = state.cards.filter((c) => {
-    const hay = `${c.name}\n${c.type}\n${c.mana}\n${c.pt}\n${c.rules}`.toLowerCase();
+    const hay = `${c.name}\n${c.type_line}\n${c.mana_cost}\n${cardPT(c)}\n${c.oracle_text}`.toLowerCase();
     const textMatch = !q || hay.includes(q);
 
-    const { mainTypes, subtypes } = parseTypeLine(c.type);
+    const { mainTypes, subtypes } = parseTypeLine(c.type_line);
     const typeMatch = !selectedType || mainTypes.includes(selectedType);
     const subtypeMatch = !selectedSubtype || subtypes.includes(selectedSubtype);
 
@@ -173,13 +179,14 @@ function applySearch() {
 
 async function loadSets() {
   const data = await api("/api/sets");
-  state.sets = data.sets || [];
+  // data is a Scryfall-style list object: { object: "list", data: [...] }
+  state.sets = data.data || [];
 
   setSelect.innerHTML = "";
   for (const s of state.sets) {
     const opt = document.createElement("option");
-    opt.value = s.key;
-    opt.textContent = `${s.title} (${s.cardsCount})`;
+    opt.value = s.code;
+    opt.textContent = `${s.name} (${s.card_count})`;
     setSelect.appendChild(opt);
   }
 
@@ -190,20 +197,21 @@ async function loadSets() {
   }
 
   subtitle.textContent = `${state.sets.length} set(s) found • pick one`;
-  state.currentSet = state.sets[0].key;
+  state.currentSet = state.sets[0].code;
   setSelect.value = state.currentSet;
   await loadCards(state.currentSet);
 }
 
-async function loadCards(setKey) {
-  const data = await api(`/api/sets/${encodeURIComponent(setKey)}/cards`);
-  state.cards = data.cards || [];
+async function loadCards(setCode) {
+  const data = await api(`/api/sets/${encodeURIComponent(setCode)}/cards`);
+  // data is a Scryfall-style list object: { object: "list", data: [...] }
+  state.cards = data.data || [];
   state.filtered = state.cards;
 
-  const setMeta = state.sets.find((s) => s.key === setKey);
+  const setMeta = state.sets.find((s) => s.code === setCode);
   subtitle.textContent = setMeta
-    ? `${setMeta.title} • ${setMeta.hasImagesCount}/${setMeta.cardsCount} images found`
-    : `${setKey}`;
+    ? `${setMeta.name} • ${setMeta.image_count}/${setMeta.card_count} images found`
+    : `${setCode}`;
 
   populateFilterOptions(state.cards);
 
@@ -229,10 +237,11 @@ function closeModal() {
 function formatCardText(c) {
   const lines = [];
   lines.push(c.name);
-  if (c.mana) lines.push(c.mana);
-  if (c.type) lines.push(c.type);
-  if (c.pt) lines.push(c.pt);
-  if (c.rules) lines.push("", c.rules);
+  if (c.mana_cost) lines.push(c.mana_cost);
+  if (c.type_line) lines.push(c.type_line);
+  const pt = cardPT(c);
+  if (pt) lines.push(pt);
+  if (c.oracle_text) lines.push("", c.oracle_text);
   return lines.join("\n");
 }
 
@@ -271,19 +280,20 @@ function renderFeedback(items) {
 }
 
 async function openCard(cardId) {
-  const { card } = await api(`/api/cards/${encodeURIComponent(cardId)}`);
+  // Card object is returned directly (no wrapper) — Scryfall parity
+  const card = await api(`/api/cards/${encodeURIComponent(cardId)}`);
   state.selectedCard = card;
 
   cardNameEl.textContent = card.name;
-  cardTypeEl.textContent = card.type || "";
-  cardManaEl.textContent = card.mana || "";
-  cardPTEl.textContent = card.pt || "";
-  cardRulesEl.textContent = card.rules || "";
+  cardTypeEl.textContent = card.type_line || "";
+  cardManaEl.textContent = card.mana_cost || "";
+  cardPTEl.textContent = cardPT(card);
+  cardRulesEl.textContent = card.oracle_text || "";
 
   modalImageWrap.innerHTML = "";
-  if (card.hasImage && card.imageUrl) {
+  if (card.image_uris) {
     const img = document.createElement("img");
-    img.src = card.imageUrl;
+    img.src = card.image_uris.normal;
     img.alt = card.name;
     modalImageWrap.appendChild(img);
   } else {

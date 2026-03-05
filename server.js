@@ -296,25 +296,15 @@ async function scanSets() {
   try {
     dirents = await fsp.readdir(SETS_DIR, { withFileTypes: true });
   } catch (e) {
-    console.error(`[scan] Failed to read SETS_DIR ${SETS_DIR}:`, e.message);
+    console.error(`[scan] Failed to read SETS_DIR "${SETS_DIR}": ${e.code} – ${e.message}`);
     scanCache = { scannedAt: Date.now(), sets: [], cardsBySet: new Map(), cardById: new Map() };
     return;
   }
 
-  // On some filesystems (overlay, older kernels) d_type is DT_UNKNOWN so
-  // Dirent.isDirectory() always returns false.  Fall back to fsp.stat() in
-  // that case so Docker bind-mounts on e.g. Linux 4.x still work.
-  const setFolders = [];
-  for (const d of dirents) {
-    if (d.isDirectory()) {
-      setFolders.push(d.name);
-    } else {
-      try {
-        const st = await fsp.stat(path.join(SETS_DIR, d.name));
-        if (st.isDirectory()) setFolders.push(d.name);
-      } catch { /* skip unreadable entries */ }
-    }
-  }
+  console.log(`[scan] SETS_DIR="${SETS_DIR}" entries (${dirents.length}):`,
+    dirents.map((d) => `${d.name}[${d.isDirectory() ? "dir" : d.isFile() ? "file" : "other"}]`).join(", ") || "(none)");
+
+  const setFolders = dirents.filter((d) => d.isDirectory()).map((d) => d.name);
   const sets = [];
   const cardsBySet = new Map();
   const cardById = new Map();
@@ -666,6 +656,7 @@ app.get("/api/sets/:setKey/images/:filename", async (req, res) => {
 
 // --- Startup ---
 
+console.log(`[startup] SETS_DIR=${SETS_DIR}  DATA_DIR=${DATA_DIR}  PORT=${PORT}`);
 await scanSets();
 setInterval(() => {
   scanSets().catch((e) => console.error("[scan] error:", e));

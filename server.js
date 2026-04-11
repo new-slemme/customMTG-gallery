@@ -223,6 +223,62 @@ async function fileExists(p) {
 const THUMBS_DIR = path.join(DATA_DIR, "thumbs");
 const THUMB_WIDTH = 280;
 
+const ART_CROP_LEFT = 0;
+const ART_CROP_TOP = 395;
+const ART_CROP_WIDTH = 2187;
+const ART_CROP_HEIGHT = 1246;
+const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp"]);
+
+async function generateMissingArtCrops(setsDir) {
+  let dirents;
+  try {
+    dirents = await fsp.readdir(setsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+
+  const { default: sharp } = await import("sharp");
+
+  for (const d of dirents) {
+    let isDir = d.isDirectory();
+    if (!isDir) {
+      try { isDir = (await fsp.stat(path.join(setsDir, d.name))).isDirectory(); } catch { continue; }
+    }
+    if (!isDir) continue;
+
+    const imagesDir = path.join(setsDir, d.name, "cards_images");
+    const cropDir = path.join(setsDir, d.name, "cards_art_crop");
+
+    let images;
+    try {
+      images = await fsp.readdir(imagesDir, { withFileTypes: true });
+    } catch {
+      continue;
+    }
+
+    await fsp.mkdir(cropDir, { recursive: true });
+
+    for (const img of images) {
+      if (!img.isFile() || !IMAGE_EXTS.has(path.extname(img.name).toLowerCase())) continue;
+
+      const destPath = path.join(cropDir, img.name);
+      if (await fileExists(destPath)) continue;
+
+      const srcPath = path.join(imagesDir, img.name);
+      try {
+        const meta = await sharp(srcPath).metadata();
+        const width = Math.min(ART_CROP_WIDTH, (meta.width ?? ART_CROP_WIDTH) - ART_CROP_LEFT);
+        const height = Math.min(ART_CROP_HEIGHT, (meta.height ?? ART_CROP_HEIGHT + ART_CROP_TOP) - ART_CROP_TOP);
+        if (width <= 0 || height <= 0) continue;
+        await sharp(srcPath).extract({ left: ART_CROP_LEFT, top: ART_CROP_TOP, width, height }).toFile(destPath);
+        console.log(`[art-crop] generated: ${d.name}/${img.name}`);
+      } catch (err) {
+        console.error(`[art-crop] failed: ${d.name}/${img.name}: ${err.message}`);
+      }
+    }
+  }
+}
+
 async function getOrCreateThumb(setKey, filename, srcPath) {
   const thumbDir = path.join(THUMBS_DIR, setKey);
   const thumbPath = path.join(thumbDir, `${filename}.webp`);
@@ -353,6 +409,12 @@ async function scanSets() {
 
       if (imageFile) imageCount += 1;
 
+      let artCropFile = null;
+      if (imageFile) {
+        const cropPath = path.join(setDir, "cards_art_crop", imageFile);
+        if (await fileExists(cropPath)) artCropFile = imageFile;
+      }
+
       const cardRecord = {
         ...card,
         id,
@@ -363,6 +425,7 @@ async function scanSets() {
           ? {
               normal: `/api/sets/${encodeURIComponent(setKey)}/images/${encodeURIComponent(imageFile)}`,
               small: `/api/sets/${encodeURIComponent(setKey)}/thumbnails/${encodeURIComponent(imageFile)}`,
+              ...(artCropFile ? { art_crop: `/api/sets/${encodeURIComponent(setKey)}/art-crops/${encodeURIComponent(artCropFile)}` } : {}),
             }
           : null,
       };
@@ -664,10 +727,21 @@ app.get("/api/sets/:setKey/images/:filename", async (req, res) => {
   res.sendFile(imgPath);
 });
 
+// Serve art crop images
+app.get("/api/sets/:setKey/art-crops/:filename", async (req, res) => {
+  const { setKey, filename } = req.params;
+  const imgPath = safeJoin(safeJoin(SETS_DIR, setKey), "cards_art_crop", filename);
+  if (!(await fileExists(imgPath))) return res.status(404).send("Not found");
+  res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+  res.sendFile(imgPath);
+});
+
 // --- Startup ---
 
+await generateMissingArtCrops(SETS_DIR);
 await scanSets();
 setInterval(() => {
+  generateMissingArtCrops(SETS_DIR).catch((e) => console.error("[art-crop] error:", e));
   scanSets().catch((e) => console.error("[scan] error:", e));
 }, Math.max(5, SCAN_INTERVAL_SECONDS) * 1000);
 

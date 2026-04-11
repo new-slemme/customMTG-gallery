@@ -1,24 +1,30 @@
+version: '3.8'  # Added for clarity/modern syntax
+
 services:
   custom-mtg-gallery:
     build: .
     container_name: custom-mtg-gallery
-    restart: unless-stopped
     environment:
-      - PORT=3000
-      - SETS_DIR=/sets
-      - DATA_DIR=/data
-      - SCAN_INTERVAL_SECONDS=10
+      - SETS_DIR=/app/sets
+      - DATA_DIR=/app/gallery-data
     volumes:
-      # Mount your existing sets folder (read-only)
-      - ./sets:/sets:ro
-      # Persist feedback/comments
-      - ./gallery-data:/data
+      - ./sets:/app/sets
+      - ./gallery-data:/app/gallery-data
+    restart: unless-stopped
+    # Removed ports: - "3000:3000"  # No direct host exposure; Traefik handles it
     networks:
       - npm_default
-    # Optional (nice for local testing without NPM):
-    # ports:
-    #   - "127.0.0.1:3000:3000"
+    #labels:
+    #  - "traefik.enable=true"
+    #  - "traefik.http.routers.cmtg.rule=Host(`cmtg.figurensohn.de`)"  # Routes the subdomain
+    #  - "traefik.http.routers.cmtg.entrypoints=websecure"  # HTTPS entrypoint
+    #  - "traefik.http.routers.cmtg.tls=true"  # Enable TLS
+    #  - "traefik.http.routers.cmtg.tls.certresolver=letsencrypt"  # Let's Encrypt resolver
+    #  - "traefik.http.services.cmtg.loadbalancer.server.port=3000"  # Internal app port
+    #  - "traefik.docker.network=traefik_proxy"  # Explicit network for detection
+      # Optional: Add if you want auth or headers (none in original NPM conf)
+      # - "traefik.http.routers.cmtg.middlewares=auth"
 
 networks:
   npm_default:
-    external: true
+    external: true  # References the external Traefik network

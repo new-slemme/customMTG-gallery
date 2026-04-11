@@ -5,8 +5,8 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "gen-art-crops": "node scripts/gen-art-crops.js",
-    "gen-art-crops:force": "node scripts/gen-art-crops.js --force"
+    "gen-crops": "node scripts/gen-art-crops.js",
+    "gen-crops:force": "node scripts/gen-art-crops.js --force"
   },
   "dependencies": {
     "express": "^4.19.2",
